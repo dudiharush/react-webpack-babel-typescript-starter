@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "name": "webpack-typescript-react-starter",
+  "version": "1.0.0",
+  "repository": "git@github.com:saltyshiomix/webpack-typescript-react-starter.git",
+  "author": "Shiono Yoshihide <shiono.yoshihide@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "check-types": "tsc",
+    "build": "yarn run clean-dist && webpack -p --config=configs/webpack/webpack.prod.js",
+    "clean-dist": "rimraf dist/*",
+    "start": "webpack-dev-server --config=configs/webpack/webpack.dev.js",
+    "test": "jest --watch --coverage --config=configs/jest.json"
+  },
+  "dependencies": {
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/preset-typescript": "^7.6.0",
+    "@types/node": "^12.11.6",
+    "@types/react": "^16.9.9",
+    "@types/react-dom": "^16.9.2",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^6.0.3",
+    "html-webpack-plugin": "^3.2.0",
+    "serve": "^11.2.0",
+    "terser-webpack-plugin": "^2.2.1",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  }
+}
