@@ -72,13 +72,14 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,md}": [
+      "tsc --noEmit",
       "yarn run lint:fix",
       "git add"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "tsc --noEmit && lint-staged"
+      "pre-commit": " lint-staged"
     }
   }
 }
