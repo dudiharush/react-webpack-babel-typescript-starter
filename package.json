@@ -71,7 +71,8 @@
     "webpack-merge": "^4.2.2"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,md}": [
+    "*.{ts,tsx}": [
+      "tsc --noEmit",
       "yarn run lint:fix",
       "git add"
     ]
