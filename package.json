@@ -7,9 +7,10 @@
   "license": "MIT",
   "scripts": {
     "check-types": "tsc",
-    "build": "yarn run clean-dist && webpack -p --config=config/webpack/webpack.prod.js",
+    "set-webpack-ts-config": "cross-env TS_NODE_PROJECT=\"./config/webpack/tsconfig-for-webpack-config.json\"",
+    "build": "yarn run clean-dist && yarn run set-webpack-ts-config webpack -p --config=config/webpack/webpack.prod.ts",
     "clean-dist": "rimraf dist/*",
-    "start": "webpack-dev-server --config=config/webpack/webpack.dev.js",
+    "start": "yarn run set-webpack-ts-config webpack-dev-server --config=config/webpack/webpack.dev.ts",
     "test": "jest --watch --coverage"
   },
   "jest": {
@@ -19,7 +20,8 @@
   },
   "dependencies": {
     "react": "^16.11.0",
-    "react-dom": "^16.11.0"
+    "react-dom": "^16.11.0",
+    "rimraf": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -36,6 +38,7 @@
     "@types/react-test-renderer": "^16.9.1",
     "@types/webpack": "^4.39.8",
     "@types/webpack-dev-server": "^3.4.0",
+    "@types/webpack-merge": "^4.1.5",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
@@ -51,6 +54,7 @@
     "serve": "^11.2.0",
     "terser-webpack-plugin": "^2.2.1",
     "ts-node": "^8.4.1",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^3.6.4",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
