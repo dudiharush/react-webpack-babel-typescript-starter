@@ -72,7 +72,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,md}": [
-      "eslint src/*.tsx --fix",
+      "yarn run lint:fix",
       "git add"
     ]
   },
