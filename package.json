@@ -12,8 +12,7 @@
     "clean-dist": "rimraf dist/*",
     "start": "yarn run set-webpack-ts-config webpack-dev-server --config=config/webpack/webpack.dev.ts",
     "test": "jest --watch --coverage",
-    "lint:fix": "eslint src/*.js --fix",
-    "lint": "eslint src/*.js"
+    "lint:fix": "eslint src/*.tsx --fix"
   },
   "jest": {
     "projects": [
@@ -73,7 +72,7 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,md}": [
-      "eslint --fix",
+      "eslint src/*.tsx --fix",
       "git add"
     ]
   },
