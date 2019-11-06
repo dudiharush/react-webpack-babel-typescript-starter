@@ -12,6 +12,6 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    // Special ESLint rules or overrides go here.
+    "@typescript-eslint/no-unused-vars": "off"
   },
 }
