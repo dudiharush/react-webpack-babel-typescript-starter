@@ -11,7 +11,9 @@
     "build": "yarn run clean-dist && yarn run set-webpack-ts-config webpack -p --config=config/webpack/webpack.prod.ts",
     "clean-dist": "rimraf dist/*",
     "start": "yarn run set-webpack-ts-config webpack-dev-server --config=config/webpack/webpack.dev.ts",
-    "test": "jest --watch --coverage"
+    "test": "jest --watch --coverage",
+    "lint:fix": "eslint src/*.js --fix",
+    "lint": "eslint src/*.js"
   },
   "jest": {
     "projects": [
@@ -39,6 +41,8 @@
     "@types/webpack": "^4.39.8",
     "@types/webpack-dev-server": "^3.4.0",
     "@types/webpack-merge": "^4.1.5",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
@@ -46,10 +50,14 @@
     "css-loader": "^3.2.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.6.0",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.0.9",
     "jest": "^24.9.0",
+    "lint-staged": "^9.4.2",
     "mini-css-extract-plugin": "^0.8.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "prettier": "^1.18.2",
     "react-test-renderer": "^16.11.0",
     "serve": "^11.2.0",
     "terser-webpack-plugin": "^2.2.1",
@@ -60,5 +68,16 @@
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0",
     "webpack-merge": "^4.2.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,md}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
