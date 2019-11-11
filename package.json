@@ -85,6 +85,7 @@
     "run-s": "^0.0.0",
     "serve": "^11.2.0",
     "start-server-and-test": "^1.10.6",
+    "style-loader": "^1.0.0",
     "terser-webpack-plugin": "^2.2.1",
     "ts-node": "^8.4.1",
     "tsconfig-paths": "^3.9.0",
