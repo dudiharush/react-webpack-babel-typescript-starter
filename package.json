@@ -20,12 +20,11 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "cy:browser": "npm start && cypress run --browser chrome",
-    "cy:start-server-and-test": "npx start-server-and-test serve :8080 cy:run",
-    "serve": "npx serve --no-clipboard --single --listen 8080 dist",
+    "start-server": "yarn run set-webpack-ts-config webpack-dev-server --config=config/webpack/webpack.test.ts",
+    "cy:start-server-and-test": "npx start-server-and-test start-server http-get://localhost:8080 cy:run",
     "test:cypress:dev": "npm-run-all --parallel --race start cy:open",
     "test:unit:watch": "react-scripts test --env=jsdom",
-    "test:cypress:headless": "yarn run build && npm run cy:start-server-and-test",
-    "test": "run-p --silent test:jest test:cypress:headless"
+    "test": "run-s --silent test:jest cy:start-server-and-test"
   },
   "jest": {
     "projects": [
@@ -51,11 +50,14 @@
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.21",
+    "@types/mini-css-extract-plugin": "^0.8.0",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.12.6",
+    "@types/optimize-css-assets-webpack-plugin": "^5.0.1",
     "@types/react": "^16.9.9",
     "@types/react-dom": "^16.9.2",
     "@types/react-test-renderer": "^16.9.1",
+    "@types/terser-webpack-plugin": "^2.2.0",
     "@types/webpack": "^4.39.8",
     "@types/webpack-dev-server": "^3.4.0",
     "@types/webpack-merge": "^4.1.5",
@@ -83,7 +85,6 @@
     "react-docgen-typescript-loader": "^3.3.0",
     "react-test-renderer": "^16.11.0",
     "run-s": "^0.0.0",
-    "serve": "^11.2.0",
     "start-server-and-test": "^1.10.6",
     "style-loader": "^1.0.0",
     "terser-webpack-plugin": "^2.2.1",
@@ -103,7 +104,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": " lint-staged"
+      "pre-commit": "lint-staged"
     }
   }
 }

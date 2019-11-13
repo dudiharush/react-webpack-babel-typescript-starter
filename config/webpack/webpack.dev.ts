@@ -2,14 +2,14 @@ import merge from 'webpack-merge'
 import { getCommonConfig } from './webpack.common'
 import webpack from 'webpack'
 
-const devConfig: webpack.Configuration = {
+export const getDevConfig = (openBrowser = true): webpack.Configuration => ({
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     contentBase: '/dist',
     port: 8080,
-    open: true,
-    hot: true,
+    open: openBrowser,
+    hot: openBrowser,
     compress: true,
     stats: 'errors-only',
     overlay: true,
@@ -23,6 +23,6 @@ const devConfig: webpack.Configuration = {
       },
     ],
   },
-}
+})
 
-export default merge(getCommonConfig(), devConfig)
+export default merge(getCommonConfig(), getDevConfig())
