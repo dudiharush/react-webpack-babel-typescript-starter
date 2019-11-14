@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "target": "es5",
+    "module": "commonjs",
     "jsx": "preserve",
+    "sourceMap": true,
     "moduleResolution": "node",
     "strict": true,
     "noEmit": true,
