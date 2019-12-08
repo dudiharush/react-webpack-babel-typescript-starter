@@ -8,10 +8,14 @@ context('Example Cypress TodoMVC test', () => {
   })
 
   describe('React Typescript App', () => {
-    it('shows main link', function() {
+    it('shows welcome message', function() {
       cy.get('p')
         .should('be.visible')
         .and('have.text', 'Webpack + TypeScript + React = ❤️')
+    })
+
+    it('tries cypress test', function() {
+      cy.queryByText('Webpack + TypeScript + React = ❤️').should('exist')
     })
   })
 })

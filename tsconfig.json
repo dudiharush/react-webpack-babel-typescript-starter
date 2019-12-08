@@ -11,8 +11,10 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "esModuleInterop": true,
+    "types": ["cypress", "@types/testing-library__cypress"]
   },
   "include": [
-    "src", "cypress/integration", "config/webpack"
-  ]
+    "src", "config/**/*","cypress"
+  ],
+  "files": ["src\\node_modules\\@testing-library]\\jest-dom\\extend-expect.d.ts"]
 }

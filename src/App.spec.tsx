@@ -1,12 +1,12 @@
+import { render } from '@testing-library/react'
+import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
-import renderer from 'react-test-renderer'
-import Adapter from 'enzyme-adapter-react-16'
-import { mount } from 'enzyme'
 import App from './App'
 
 describe('App', () => {
-  it('renders the inner Counter', () => {
-    const wrapper = mount(<App />)
-    expect(wrapper.find('p').text()).toEqual('Webpack + TypeScript + React = ❤️')
+  test('renders message', () => {
+    const { getByText } = render(<App />)
+
+    expect(getByText('React', { exact: false })).toBeInTheDocument()
   })
 })
