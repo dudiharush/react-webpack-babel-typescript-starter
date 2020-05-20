@@ -14,6 +14,7 @@
     "test:jest:watch": "jest --watch --config=./config/jest.config.js",
     "test:jest": "jest -i --coverage --config=./config/jest.config.js",
     "lint:fix": "eslint src/ --ext .tsx,.ts,.js --fix",
+    "lint:fix-dev": "eslint -c ./dev.eslintrc.js src/ --ext .tsx,.ts,.js --fix",
     "typecheck": "tsc",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -79,6 +80,7 @@
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.20.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
@@ -100,7 +102,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "yarn run lint:fix",
+      "npm run lint:fix",
+      "npm run lint:fix-dev",
       "git add"
     ]
   },
