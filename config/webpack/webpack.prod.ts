@@ -3,9 +3,9 @@ import { getCommonConfig } from './webpack.common'
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
 import TerserJSPlugin from 'terser-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import webpack from 'webpack'
+import { Configuration as WebpackConfiguration } from 'webpack'
 
-const prodConfig: webpack.Configuration = {
+const prodConfig: WebpackConfiguration = {
   mode: 'production',
   optimization: {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
@@ -33,4 +33,6 @@ const prodConfig: webpack.Configuration = {
   ],
 }
 
-export default merge(getCommonConfig(), prodConfig)
+export const getProdConfig = (): WebpackConfiguration => merge(getCommonConfig(), prodConfig)
+const config = getProdConfig()
+export default config
