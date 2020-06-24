@@ -14,6 +14,7 @@
     "start": "webpack-dev-server --config=config/webpack/webpack.dev.ts",
     "test:jest:watch": "jest --watch --config=./config/jest.config.js",
     "test:jest": "jest -i --coverage --config=./config/jest.config.js",
+    "test:staged": "jest --bail --findRelatedTests",
     "lint:fix": "eslint src/ --ext .tsx,.ts,.js --fix",
     "lint:fix-dev": "eslint -c ./dev.eslintrc.js src/ --ext .tsx,.ts,.js --fix",
     "typecheck": "tsc",
@@ -107,7 +108,8 @@
     "*.{ts,tsx}": [
       "npm run lint:fix",
       "npm run lint:fix-dev",
-      "git add"
+      "git add",
+      "npm run test:staged"
     ]
   },
   "husky": {
