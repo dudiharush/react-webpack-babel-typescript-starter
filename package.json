@@ -16,7 +16,9 @@
     "test:jest": "jest -i --coverage --config=./config/jest.config.js",
     "test:staged": "jest --bail --findRelatedTests",
     "lint:fix": "eslint src/ --ext .tsx,.ts,.js --fix",
+    "lint:fix:staged": "eslint --fix",
     "lint:fix-dev": "eslint -c ./dev.eslintrc.js src/ --ext .tsx,.ts,.js --fix",
+    "lint:fix-dev:staged": "eslint -c ./dev.eslintrc.js --fix",
     "typecheck": "tsc",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
@@ -106,8 +108,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "npm run lint:fix",
-      "npm run lint:fix-dev",
+      "npm run lint:fix:staged",
+      "npm run lint:fix-dev:staged",
       "git add",
       "npm run test:staged"
     ]
