@@ -22,6 +22,16 @@ const prodConfig: WebpackConfiguration = {
           'css-loader',
         ],
       },
+      {
+        test: /\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            envName: 'prod',
+          },
+        },
+      },
     ],
   },
   plugins: [

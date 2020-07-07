@@ -1,4 +1,14 @@
 {
-  "presets": ["@babel/env", "@babel/react", "@babel/typescript"],
-  "plugins": ["react-hot-loader/babel"]
+  "env": {
+    "test": {
+      "presets": ["@babel/env", "@babel/react", "@babel/typescript"]
+    },
+    "prod": {
+      "presets": ["@babel/env", "@babel/react", "@babel/typescript"]
+    },
+    "dev": {
+      "presets": ["@babel/env", "@babel/react", "@babel/typescript"],
+      "plugins": ["react-refresh/babel"]
+    }
+  }
 }

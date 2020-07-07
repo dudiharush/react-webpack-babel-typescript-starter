@@ -14,7 +14,7 @@ export const getCommonConfig = (env: WebpackEnv = {}): webpack.Configuration => 
   return {
     mode: 'none',
     entry: {
-      index: ['react-hot-loader/patch', join(resolve('src'), 'index.tsx')],
+      index: [join(resolve('src'), 'index.tsx')],
     },
     output: {
       pathinfo: debug === true,
@@ -23,15 +23,6 @@ export const getCommonConfig = (env: WebpackEnv = {}): webpack.Configuration => 
     },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
-    },
-    module: {
-      rules: [
-        {
-          test: /\.tsx?$/,
-          exclude: /node_modules/,
-          use: 'babel-loader',
-        },
-      ],
     },
     plugins: [
       new CleanWebpackPlugin(),

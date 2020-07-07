@@ -7,6 +7,8 @@ describe('App', () => {
   test('renders message', () => {
     const { getByText } = render(<App />)
 
+    /* eslint-disable */
+    //@ts-ignore
     expect(getByText('React', { exact: false })).toBeInTheDocument()
   })
 })
