@@ -1,5 +1,8 @@
 import React from 'react'
+import { hot } from 'react-hot-loader/root'
 
-export default function App(): JSX.Element {
+function App(): JSX.Element {
   return <p>Webpack + TypeScript + React = ❤️</p>
 }
+
+export default hot(App)

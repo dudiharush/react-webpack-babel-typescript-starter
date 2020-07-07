@@ -14,7 +14,7 @@ export const getCommonConfig = (env: WebpackEnv = {}): webpack.Configuration => 
   return {
     mode: 'none',
     entry: {
-      index: join(resolve('src'), 'index.tsx'),
+      index: ['react-hot-loader/patch', join(resolve('src'), 'index.tsx')],
     },
     output: {
       pathinfo: debug === true,

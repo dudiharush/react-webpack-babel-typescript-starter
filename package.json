@@ -25,7 +25,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "cy:browser": "npm start && cypress run --browser chrome",
-    "start-server": "webpack-dev-server --config=config/webpack/webpack.test.ts",
+    "start-server": "webpack-dev-server --config=config/webpack/webpack.testing.ts",
     "cy:start-server-and-test": "npx start-server-and-test start-server http-get://localhost:8080 cy:run",
     "test:cypress:dev": "npm-run-all --parallel --race start cy:open",
     "test:unit:watch": "react-scripts test --env=jsdom",
@@ -40,6 +40,7 @@
     "npm-run-all": "^4.1.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hot-loader": "^4.12.21",
     "rimraf": "^3.0.2"
   },
   "devDependencies": {
