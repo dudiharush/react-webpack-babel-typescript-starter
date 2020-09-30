@@ -1,8 +1,4 @@
-// enables intelligent code completion for Cypress commands
-// https://on.cypress.io/intelligent-code-completion
-/// <reference types="Cypress" />
-
-context('Example Cypress TodoMVC test', () => {
+describe('Example Cypress TodoMVC test', () => {
   beforeEach(() => {
     cy.visit('/')
   })
@@ -15,7 +11,7 @@ context('Example Cypress TodoMVC test', () => {
     })
 
     it('tries cypress test', function() {
-      cy.queryByText('Webpack + TypeScript + React = ❤️').should('exist')
+      cy.findAllByText('Webpack + TypeScript + React = ❤️').should('exist')
     })
   })
 })

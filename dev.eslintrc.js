@@ -2,7 +2,7 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     plugins: ['react'],
     parserOptions: {
-      project: './tsconfig.json',
+      project: ['./tsconfig.json', 'cypress/tsconfig.json'],
       ecmaVersion: 2018,
       sourceType: 'module',
       ecmaFeatures: {

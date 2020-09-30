@@ -1,10 +1,11 @@
-// {
-//   "compilerOptions": {
-//     "strict": true,
-//     "baseUrl": "../node_modules",
-//     "target": "es5",
-//     "lib": ["es5", "dom"],
-//     "types": ["cypress"]
-//   },
-//   "include": ["**/*.ts"]
-// }
+{
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "baseUrl": "..\\node_modules",
+    "target": "es5",
+    "lib": ["esnext", "dom"],
+    "types": ["cypress", "@testing-library/cypress"]
+  },
+  "include": ["**/*.ts", "support/commands.js"]
+}
