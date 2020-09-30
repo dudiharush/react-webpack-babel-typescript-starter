@@ -1,4 +1,4 @@
-describe('Example Cypress TodoMVC test', () => {
+context('Example Cypress TodoMVC test', () => {
   beforeEach(() => {
     cy.visit('/')
   })

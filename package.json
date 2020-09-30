@@ -113,8 +113,7 @@
     "*.{ts,tsx}": [
       "npm run lint:fix:staged",
       "npm run lint:fix-dev:staged",
-      "git add",
-      "npm run test:staged"
+      "git add"
     ]
   },
   "husky": {

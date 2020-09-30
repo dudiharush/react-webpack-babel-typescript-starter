@@ -1,14 +1,13 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint', 'cypress'],
+  plugins: ['@typescript-eslint'],
   extends: [
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
-    "plugin:cypress/recommended"
   ],
   parserOptions: {
-    project: './tsconfig.json',
+    project: ['./tsconfig.json', 'cypress/tsconfig.json'],
     ecmaVersion: 2018,
     sourceType: 'module',
   },
