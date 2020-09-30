@@ -4,4 +4,4 @@ dist
 storybook-static
 coverage/*
 config/coverage/*
-/cypress/screenshots/**/*
+cypress/screenshots/*
