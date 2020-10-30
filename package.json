@@ -19,7 +19,9 @@
     "lint:fix:staged": "eslint --fix",
     "lint:fix-dev": "eslint -c ./dev.eslintrc.js src/ --ext .tsx,.ts,.js --fix",
     "lint:fix-dev:staged": "eslint -c ./dev.eslintrc.js --fix",
-    "typecheck": "tsc",
+    "typecheck": "run-p typecheck-webapp typecheck-cypress",
+    "typecheck-webapp": "tsc",
+    "typecheck-cypress": "tsc -p cypress/tsconfig.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "cy:run": "cypress run",
@@ -118,7 +120,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged && npm run typecheck"
     }
   }
 }

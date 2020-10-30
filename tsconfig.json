@@ -13,8 +13,8 @@
     "skipLibCheck": true,
     "isolatedModules": false,
     "esModuleInterop": true,
-    "types": ["jest","cypress", "@testing-library/cypress"],
+    "types": ["jest"],
   },
-  "include": ["src", "config/**/*", "cypress/integration/*.ts"],
+  "include": ["src", "config/**/*",],
 
 }
