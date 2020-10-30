@@ -2,13 +2,13 @@ import { join, resolve } from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
+type Mode = Pick<webpack.Configuration, 'mode'>
 
-export interface WebpackEnv {
-  mode?: string
+export type WebpackCommonEnv = {
   debug?: boolean
-}
+} & Mode
 
-export const getCommonConfig = (env: WebpackEnv = {}): webpack.Configuration => {
+export const getCommonConfig = (env: WebpackCommonEnv = {}): webpack.Configuration => {
   const { mode = 'development', debug = true } = env
 
   return {

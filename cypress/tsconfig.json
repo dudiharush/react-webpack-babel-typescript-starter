@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "incremental": true,
     "strict": true,
     "noEmit": true,
     "baseUrl": "..\\node_modules",
@@ -7,5 +8,5 @@
     "lib": ["esnext", "dom"],
     "types": ["cypress", "@testing-library/cypress"]
   },
-  "include": ["**/*.ts", "support/commands.js"]
+  "include": ["**/*.ts"]
 }

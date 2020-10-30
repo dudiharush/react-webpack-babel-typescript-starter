@@ -1,17 +1,21 @@
 import merge from 'webpack-merge'
-import { getCommonConfig } from './webpack.common'
-import { Configuration as WebpackConfiguration } from 'webpack'
+import { getCommonConfig, WebpackCommonEnv } from './webpack.common'
+import webpack from 'webpack'
 import 'webpack-dev-server'
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 
-export const getDevConfig = (isTest = false): WebpackConfiguration => ({
+export type WebpackDevEnv = {
+  test?: boolean
+} & WebpackCommonEnv
+
+const getDevConfig = ({ test = false }: WebpackDevEnv = {}): webpack.Configuration => ({
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
     contentBase: '/dist',
     port: 8080,
-    open: !isTest,
-    hot: !isTest,
+    open: !test,
+    hot: !test,
     compress: true,
     stats: 'errors-only',
     overlay: true,
@@ -29,13 +33,13 @@ export const getDevConfig = (isTest = false): WebpackConfiguration => ({
         use: {
           loader: 'babel-loader',
           options: {
-            envName: isTest ? 'test' : 'dev',
+            envName: test ? 'test' : 'dev',
           },
         },
       },
     ],
   },
-  plugins: isTest ? [] : [new ReactRefreshWebpackPlugin()],
+  plugins: test ? [] : [new ReactRefreshWebpackPlugin()],
 })
 
-export default merge(getCommonConfig(), getDevConfig())
+export default (env: WebpackDevEnv = {}): webpack.Configuration => merge(getCommonConfig(env), getDevConfig(env))

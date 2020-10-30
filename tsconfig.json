@@ -1,18 +1,20 @@
 {
   "compilerOptions": {
+    "incremental": true,
     "target": "es5",
     "module": "commonjs",
     "jsx": "preserve",
     "sourceMap": true,
     "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noEmit": true,
     "allowJs": true,
     "skipLibCheck": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "esModuleInterop": true,
-    "types": ["jest"]
+    "types": ["jest","cypress", "@testing-library/cypress"],
   },
-  "include": ["src", "config/**/*", "cypress"],
-  "files": ["src\\node_modules\\@testing-library]\\jest-dom\\extend-expect.d.ts"]
+  "include": ["src", "config/**/*", "cypress/integration/*.ts"],
+
 }
