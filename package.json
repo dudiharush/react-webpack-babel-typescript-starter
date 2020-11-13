@@ -93,13 +93,13 @@
     "eslint-plugin-react": "7.20.3",
     "html-webpack-plugin": "3.2.0",
     "husky": "3.1.0",
-    "install": "^0.13.0",
+    "install": "0.13.0",
     "jest": "24.9.0",
     "lint-staged": "9.5.0",
-    "lock-verify": "^2.2.1",
+    "lock-verify": "2.2.1",
     "mini-css-extract-plugin": "0.8.2",
-    "npm": "^6.14.8",
-    "npm-package-json-lint": "^5.1.0",
+    "npm": "6.14.8",
+    "npm-package-json-lint": "5.1.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "prettier": "1.19.1",
     "react-docgen-typescript-loader": "3.7.2",
@@ -129,7 +129,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run typecheck && check-packages"
+      "pre-commit": "lint-staged && npm run typecheck && npm run check-packages"
     }
   }
 }
