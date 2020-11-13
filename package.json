@@ -31,7 +31,8 @@
     "cy:start-server-and-test": "npx start-server-and-test start-server http-get://localhost:8080 cy:run",
     "test:cypress:dev": "npm-run-all --parallel --race start cy:open",
     "test:unit:watch": "react-scripts test --env=jsdom",
-    "test": "run-s --silent test:jest cy:start-server-and-test"
+    "test": "run-s --silent test:jest cy:start-server-and-test",
+    "lock-check": "node lockCheck.js"
   },
   "jest": {
     "projects": [
@@ -93,6 +94,7 @@
     "husky": "3.1.0",
     "jest": "24.9.0",
     "lint-staged": "9.5.0",
+    "lock-verify": "^2.2.1",
     "mini-css-extract-plugin": "0.8.2",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "prettier": "1.19.1",
@@ -116,6 +118,9 @@
       "npm run lint:fix-dev:staged",
       "git add",
       "npm run test:staged"
+    ],
+    "package*.json": [
+      "npm run lock-check"
     ]
   },
   "husky": {
