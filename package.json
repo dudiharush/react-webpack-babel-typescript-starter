@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "check-types": "tsc",
+    "check-packages": "npmPkgJsonLint -c ./config/packagejsonlint.config.js .",
     "build:prod": "webpack -p --config=config/webpack/webpack.prod.ts",
     "build:analyze": "webpack -p --config=config/webpack/webpack.analyze.ts",
     "build": "run-s -s clean-dist build:prod",
@@ -32,7 +33,7 @@
     "test:cypress:dev": "npm-run-all --parallel --race start cy:open",
     "test:unit:watch": "react-scripts test --env=jsdom",
     "test": "run-s --silent test:jest cy:start-server-and-test",
-    "lock-check": "node lockCheck.js"
+    "check-lock": "node lockCheck.js"
   },
   "jest": {
     "projects": [
@@ -92,10 +93,13 @@
     "eslint-plugin-react": "7.20.3",
     "html-webpack-plugin": "3.2.0",
     "husky": "3.1.0",
+    "install": "^0.13.0",
     "jest": "24.9.0",
     "lint-staged": "9.5.0",
     "lock-verify": "^2.2.1",
     "mini-css-extract-plugin": "0.8.2",
+    "npm": "^6.14.8",
+    "npm-package-json-lint": "^5.1.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "prettier": "1.19.1",
     "react-docgen-typescript-loader": "3.7.2",
@@ -120,12 +124,12 @@
       "npm run test:staged"
     ],
     "package*.json": [
-      "npm run lock-check"
+      "npm run check-lock"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && npm run typecheck"
+      "pre-commit": "lint-staged && npm run typecheck && check-packages"
     }
   }
 }
