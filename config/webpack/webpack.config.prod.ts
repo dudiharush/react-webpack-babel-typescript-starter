@@ -1,14 +1,13 @@
 import merge from 'webpack-merge'
-import { getCommonConfig, WebpackCommonEnv } from './webpack.common'
-import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
-import TerserJSPlugin from 'terser-webpack-plugin'
+import { getCommonConfig, WebpackCommonEnv } from './webpack.config.common'
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpack from 'webpack'
 
 const getProdConfig = (env: WebpackCommonEnv = {}): webpack.Configuration => ({
   mode: 'production',
   optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    minimizer: [new CssMinimizerPlugin({})],
   },
   module: {
     rules: [
