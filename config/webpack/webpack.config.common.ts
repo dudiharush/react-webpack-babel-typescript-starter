@@ -1,7 +1,6 @@
 import { join, resolve } from 'path'
 import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 type Mode = Pick<webpack.Configuration, 'mode'>
 
 export type WebpackCommonEnv = {
@@ -20,12 +19,12 @@ export const getCommonConfig = (env: WebpackCommonEnv = {}): webpack.Configurati
       pathinfo: debug === true,
       path: resolve('dist'),
       filename: '[name].js',
+      clean: true,
     },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
     plugins: [
-      new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({
         title: 'Babel + TypeScript + React = ❤️',
         template: 'src/index.html',
